@@ -1,4 +1,5 @@
 ﻿using ModelsBad;
+using ModelsGood;
 using System;
 
 namespace Solid.SingleResponsabilityExample
@@ -7,14 +8,19 @@ namespace Solid.SingleResponsabilityExample
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Example of bad model without single responsability principle");
-
-            InvitationServiceBad invitation = new();
-
             var email = "oscarkortez@gmail.com";
             var firstName = "oscar";
             var lastName = "cortez";
-            Console.WriteLine(invitation.SendInvite(email, firstName, lastName));
+
+            Console.WriteLine("Example of bad model without single responsability principle");
+            InvitationServiceBad invitationBad = new();
+            Console.WriteLine(invitationBad.SendInvite(email, firstName, lastName));
+            
+            Console.WriteLine();
+            
+            Console.WriteLine("Example of bad model without single responsability principle");
+            InvitationServiceGood invitationGood = new();
+            Console.WriteLine(invitationGood.SendInvite(email, firstName, lastName));
 
         }
     }
